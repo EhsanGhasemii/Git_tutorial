@@ -1,0 +1,8 @@
+% create an empty reposotory in your local 
+git clone #SSH_KEY
+
+% add a new file
+git add -A
+git commit -m "First commit"
+git push
+
