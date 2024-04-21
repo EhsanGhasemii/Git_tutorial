@@ -115,7 +115,7 @@ cuda.commands = $$CUDA_DIR/bin/nvcc -c $$NVCC_OPTIONS $$CUDA_INC $$LIBS --machin
 ```
 
 ## Contact us
-Mail: Ehsanghasemi7998@gmail.com
+Mail: Ehsanghasemi7998@gmail.com  
 phone: +989904690571
 
 
