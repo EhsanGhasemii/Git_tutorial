@@ -86,3 +86,36 @@ indx: 3
 MSE(0): 8.14623e-12
 ```
 
+
+## one important note
+Pay attention to test3.pro file. You should modify this file according to your GPU. This file is written for Nvidia Geforce GTX 1650. The name of this file is not important and you can change it according to your project.  
+```
+###################################################
+# CUDA settings -- 
+CUDA_DIR = /usr
+SYSTEM_TYPE = 64
+NVCC_OPTIONS = --use_fast_math
+INCLUDEPATH += $$CUDA_DIR/include
+LIBS += -L$$CUDA_DIR/lib64 -lcudart
+CUDA_SOURCES += src/cuda_main.cu
+
+CUDA_OBJECTS_DIR = ./cuda_objects
+system(mkdir -p $$CUDA_OBJECTS_DIR)
+
+cuda.input = CUDA_SOURCES
+cuda.output = $$CUDA_OBJECTS_DIR/${QMAKE_FILE_BASE}_cuda.o
+cuda.commands = $$CUDA_DIR/bin/nvcc -c $$NVCC_OPTIONS $$CUDA_INC $$LIBS --machine $$SYSTEM_TYPE -arch=sm_75 -o ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
+cuda.dependency_type = TYPE_C
+QMAKE_EXTRA_COMPILERS += cuda
+###################################################
+```
+You should modify this part: 
+```
+cuda.commands = $$CUDA_DIR/bin/nvcc -c $$NVCC_OPTIONS $$CUDA_INC $$LIBS --machine $$SYSTEM_TYPE -arch=sm_75 -o ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
+```
+
+## Contact us
+Mail: Ehsanghasemi7998@gmail.com
+phone: +989904690571
+
+
