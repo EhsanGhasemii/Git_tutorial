@@ -2,8 +2,8 @@
 
 int main() { 
 
-	// this is for commit "step1"
-	std::cout << "This is commit: step1" << std::endl; 
+	// this is for commit "step2"
+	std::cout << "This is commit: step2" << std::endl; 
 
 	return 0; 
 }
