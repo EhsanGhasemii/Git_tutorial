@@ -2,6 +2,9 @@
 ## Q2
 This question part has been added by main branch. 
 
+## Questions? 
+1- How can I come back to previous commits and ignore all other ones after the commit?
+
 ## How to push some file on Git
 ```bash
 git add -A
