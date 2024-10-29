@@ -63,6 +63,18 @@ In all below options you can see your branch's logs with below option.
 ```bash
 git log --oneline -a --graph
 ```
+You can create a new branch trough below one.
+```bash
+git branch test
+```
+And you can see diff of your branch with main one through below one. 
+```bash
+git diff test..main
+git diff main..test
+# or also below 
+git checkout main
+git diff test
+```
 First suppose the branch that you want to merge it into main branch has not diverge with
 main branch. In this option you can do Fast-Forward merge like below. 
 ```bash
