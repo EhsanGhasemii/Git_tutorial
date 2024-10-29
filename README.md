@@ -60,6 +60,17 @@ Then you can merge the latest changes from the remote branch into your branch li
 git merge origin/<branch_name>
 ```
 
+## How to go to some previous commits back? 
+If you want to go to some previous commits back you can use 2 below ways. 
+The first way is recommended. 
+```bash
+git revert -m 1 <commit_id> # use -m 1 for specify parrent commit of merge commits
+```
+Second way just reset your commit in your local computer and dont reset in others repo. 
+```bash
+git reset --hard <commit_id>
+```
+
 ## Git Merge
 In all below options you can see your branch's logs with below option. 
 ```bash
@@ -88,6 +99,11 @@ one.(This option is recommended.)
 ```bash
 git checkout main
 git --no-ff merge
+```
+You can also use rebase way to merge the branches.
+```
+git checkout test
+git rebase main
 ```
 
 
