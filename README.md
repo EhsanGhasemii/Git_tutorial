@@ -74,6 +74,8 @@ Or you can reset your commit but pay attention that it will reset just in your c
 git reset --hard <commit_id>
 ```
 
+
+
 ## Git Merge
 In all below options you can see your branch's logs with below option. 
 ```bash
