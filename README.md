@@ -104,6 +104,8 @@ You can also use rebase way to merge the branches.
 ```
 git checkout test
 git rebase main
+git switch main
+git merge test
 ```
 
 
