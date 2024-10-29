@@ -58,6 +58,23 @@ Then you can merge the latest changes from the remote branch into your branch li
 git merge origin/<branch_name>
 ```
 
+## Git Merge
+In all below options you can see your branch's logs with below option. 
+```bash
+git log --oneline -a --graph
+```
+First suppose the branch that you want to merge it into main branch has not diverge with
+main branch. In this option you can do Fast-Forward merge like below. 
+```bash
+git checkout main
+git merge
+```
+It uses Fast-Forward merging by-default. If you want to dont use that you can do below 
+one.(This option is recommended.) 
+```bash
+git checkout main
+git --no-ff merge
+```
 
 
 ## How to create SSH in your local computer and connect to github or gitlab?
