@@ -196,3 +196,16 @@ You now have both your local computer and Docker container configured to access 
 ```bash
 git clone git@github.com:username/repo.git
 ```
+
+## How to add github's IP address to your /etc/hosts file? 
+```bash
+echo "185.199.108.133 raw.githubusercontent.com" | sudo tee -a /etc/hosts
+```
+
+
+
+
+
+
+
+
