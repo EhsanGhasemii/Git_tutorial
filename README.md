@@ -156,3 +156,43 @@ git merge test
 
 
 
+## Steps to Add Docker Container Key to GitHub
+1. **Generate SSH Key in Docker Container**:
+   ```bash
+   docker exec -it <container_id_or_name> /bin/bash
+   apt-get install openssh-client
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   ```
+   Follow the prompts to save the key (e.g., `/root/.ssh/id_rsa`) and optionally set a passphrase.
+2. **Copy the Public Key**:
+   ```bash
+   cat /root/.ssh/id_rsa.pub
+   ```
+   This command displays the public key. Copy it to your clipboard.
+3. **Add SSH Key to GitHub**:
+   - Log in to your GitHub account.
+   - Go to **Settings** > **SSH and GPG keys** > **New SSH key**.
+   - Paste the copied public key and give it a recognizable title (e.g., "Docker Container").
+4. **Configure SSH in Docker Container**:
+   Create a `config` file in your SSH directory:
+   ```bash
+   nano /root/.ssh/config
+   ```
+   Add the following configuration:
+   ```config
+   Host github.com
+       HostName github.com
+       User git
+       IdentityFile /root/.ssh/id_rsa
+   ```
+5. **Test SSH Connection**:
+   Test the connection to GitHub:
+   ```bash
+   ssh -T git@github.com
+   ```
+   You should see a message like "Hi username! You've successfully authenticated, but GitHub does not provide shell access."
+### Ensure Simultaneous Access
+You now have both your local computer and Docker container configured to access your GitHub repositories. When cloning or interacting with repositories, ensure you’re using SSH URLs:
+```bash
+git clone git@github.com:username/repo.git
+```
