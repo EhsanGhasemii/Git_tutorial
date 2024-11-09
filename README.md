@@ -202,6 +202,71 @@ git clone git@github.com:username/repo.git
 echo "185.199.108.133 raw.githubusercontent.com" | sudo tee -a /etc/hosts
 ```
 
+## How to add submodules to your project?
+Adding another Git project as a submodule in your existing Git project is a handy way to include external repositories as part of your own project. Here’s a step-by-step guide to help you set it up:
+
+1. **Navigate to your main Git project directory:**
+   ```bash
+   cd /path/to/your/main/project
+   ```
+
+2. **Add the submodule:**
+   Replace `URL_OF_SUBMODULE_REPO` with the URL of the repository you want to add as a submodule.
+   ```bash
+   git submodule add URL_OF_SUBMODULE_REPO path/to/submodule
+   ```
+
+3. **Initialize and update the submodule:**
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+4. **Commit the changes:**
+   ```bash
+   git add .
+   git commit -m "Added submodule"
+   ```
+
+5. **Push the changes to your remote repository:**
+   ```bash
+   git push origin main
+   ```
+
+**Key Points:**
+- The `path/to/submodule` is where you want the submodule to be located within your main project directory.
+- The `--recursive` option in the `git submodule update` command ensures that any nested submodules are also initialized and updated.
+
+Now you have another Git project added as a submodule in your main project! If you ever need to update the submodule to a later version, navigate to the submodule directory and use `git pull` to fetch the latest changes:
+
+```bash
+cd path/to/submodule
+git pull origin main
+```
+
+And if you want to remove the submodule, follow these steps:
+1. Delete the relevant line from the `.gitmodules` file.
+2. Remove the submodule's entry from `.git/config`:
+   ```bash
+   git config --remove-section submodule.path/to/submodule
+   ```
+
+3. Delete the submodule directory from the superproject’s `.git/modules` directory:
+   ```bash
+   rm -rf .git/modules/path/to/submodule
+   ```
+
+4. Remove the submodule directory:
+   ```bash
+   git rm -r path/to/submodule
+   ```
+
+5. Commit the changes:
+   ```bash
+   git add .
+   git commit -m "Removed submodule"
+   git push origin main
+   ```
+
 
 
 
