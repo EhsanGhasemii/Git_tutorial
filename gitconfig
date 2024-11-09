@@ -1,0 +1,9 @@
+[user]
+	email = ehsanghasemi7998@gmail.com
+	name = Ehsan Ghasemi
+[core]
+	editor = nvim
+[color]
+	ui = auto
+[credential]
+	helper = store
