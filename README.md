@@ -268,9 +268,44 @@ And if you want to remove the submodule, follow these steps:
    ```
 
 
+## How to clone other branches as main one in to your directory?
+When you clone a repository from GitHub, it only clones the default branch (typically `main` or `master`). To see and work with other branches, you need to fetch them after cloning the repository. Here’s how you can do it:
 
+### Steps to Fetch All Branches
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
 
+2. **Fetch All Branches**:
+   Fetch all branches from the remote repository:
+   ```bash
+   git fetch --all
+   ```
 
+3. **List All Branches**:
+   To list all branches, both local and remote:
+   ```bash
+   git branch -a
+   ```
 
+4. **Checkout to a Specific Branch**:
+   To switch to a specific branch, use the `checkout` command:
+   ```bash
+   git checkout <branch-name>
+   ```
 
+### Example
+If you want to clone the repository and switch to a branch named `develop`, you would do the following:
+```bash
+git clone <repository-url>
+cd <repository-directory>
+git fetch --all
+git checkout develop
+```
 
+### Explanation
+- **`git fetch --all`**: This command fetches all branches and tags from the remote repository.
+- **`git branch -a`**: Lists all branches, including remote branches.
+- **`git checkout <branch-name>`**: Switches to the specified branch.
