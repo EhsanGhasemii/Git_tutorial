@@ -309,3 +309,59 @@ git checkout develop
 - **`git fetch --all`**: This command fetches all branches and tags from the remote repository.
 - **`git branch -a`**: Lists all branches, including remote branches.
 - **`git checkout <branch-name>`**: Switches to the specified branch.
+
+
+## How to pull after commiting something? 
+The error you're encountering happens when the remote repository contains commits that are not present in your local repository. To resolve this issue, you'll need to integrate the remote changes into your local branch before pushing your changes. Here’s a step-by-step guide to resolve the conflict:
+
+### Step-by-Step Solution
+
+1. **Fetch the Latest Changes from the Remote Repository**:
+   ```bash
+   git fetch origin
+   ```
+
+2. **Merge the Remote Changes into Your Local Branch**:
+   ```bash
+   git merge origin/main
+   ```
+   If your main branch is named `main`. If it's `master`, use `git merge origin/master`.
+
+   - If there are conflicts during the merge, Git will prompt you to resolve them manually. Open the conflicting files, resolve the conflicts, and then mark them as resolved:
+     ```bash
+     git add <file>
+     ```
+
+3. **Commit the Merge (If Necessary)**:
+   If there were conflicts and you resolved them, you might need to commit the merge:
+   ```bash
+   git commit -m "Resolved merge conflicts"
+   ```
+
+4. **Push Your Changes to the Remote Repository**:
+   Now that your local branch is up to date with the remote branch, you can push your changes:
+   ```bash
+   git push origin main
+   ```
+
+### Explanation
+- **`git fetch origin`**: This command fetches the latest changes from the remote repository without merging them into your local branch.
+- **`git merge origin/main`**: This command merges the fetched changes into your local branch. Replace `main` with your branch name if it’s different.
+- **Resolve Conflicts**: If there are conflicts, Git will pause the merge and prompt you to resolve them manually. After resolving the conflicts, you need to add the resolved files and commit the changes.
+- **`git push origin main`**: Finally, push your changes to the remote repository.
+
+### Alternative: Rebase
+Another approach is to use `git pull --rebase`, which rewrites your local commits on top of the fetched commits:
+1. **Pull with Rebase**:
+   ```bash
+   git pull --rebase origin main
+   ```
+2. **Resolve Conflicts (If Any)**: If there are conflicts, resolve them as described above.
+3. **Push Your Changes**:
+   ```bash
+   git push origin main
+   ```
+
+Using rebase can keep your commit history cleaner by avoiding merge commits.
+
+Give these steps a try, and let me know if you encounter any issues or need further assistance! 😊
