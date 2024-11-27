@@ -365,3 +365,10 @@ Another approach is to use `git pull --rebase`, which rewrites your local commit
 Using rebase can keep your commit history cleaner by avoiding merge commits.
 
 Give these steps a try, and let me know if you encounter any issues or need further assistance! 😊
+
+
+
+## How to figure out diff of your tracken file wiht a specefic commit?
+```bash
+git diff <commit_hash> -- examplt.txt
+```
