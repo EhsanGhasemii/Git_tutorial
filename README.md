@@ -372,3 +372,14 @@ Give these steps a try, and let me know if you encounter any issues or need furt
 ```bash
 git diff <commit_hash> -- examplt.txt
 ```
+
+## How to clean your directory?
+```bash
+git clean -fdx
+```
+- f: Force the removal of untracked files.
+- d: Remove untracked directories in addition to untracked files.
+- x: Remove ignored files in addition to untracked files.
+
+You can also use `git clean -fdxn` to see which files would be deleted.
+
