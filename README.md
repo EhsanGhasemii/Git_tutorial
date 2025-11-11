@@ -383,3 +383,9 @@ git clean -fdx
 
 You can also use `git clean -fdxn` to see which files would be deleted.
 
+
+## How to unstage files? 
+```bash
+git restore --staged <filename>
+```
+
